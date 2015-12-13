@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = function (config) {
   config.set({
@@ -31,11 +32,31 @@ module.exports = function (config) {
     webpack: {
       devtool: 'inline-source-map',
       module: {
-        loaders: [
-          {test: /\.js(x)?$/, loader: 'babel-loader'}
-        ],
-        postLoaders: [
-          {test: /\.js(x)?$/, exclude: /(test|node_modules)\//, loader: 'istanbul-instrumenter'}
+        // *optional* isparta options: istanbul behind isparta will use it
+        isparta: {
+          embedSource: true,
+          noAutoWrap: true,
+          // these babel options will be passed only to isparta and not to babel-loader
+          babel: {
+            presets: ['es2015', 'react']
+          }
+        },
+        preLoaders: [
+          // transpile all files except testing sources with babel as usual
+          {
+            test: /\.js$/,
+            exclude: [
+              path.resolve('src'),
+              path.resolve('node_modules/')
+            ],
+            loader: 'babel-loader'
+          },
+          // transpile and instrument only testing sources with isparta
+          {
+            test: /\.js$/,
+            include: path.resolve('src'),
+            loader: 'isparta'
+          }
         ]
       }
     },

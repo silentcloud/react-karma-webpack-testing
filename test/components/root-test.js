@@ -1,7 +1,7 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
-import Root from '../src/components/root';
+import Root from '../../src/components/root';
 
 describe('root', function () {
   it('renders without problems', () => {
