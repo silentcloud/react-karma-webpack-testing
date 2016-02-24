@@ -1,41 +1,26 @@
 {
-  "name": "react-karma-webpack-testing",
-  "version": "0.0.1",
-  "description": "Unit testing example of using karma + webpack + istanbul + babel6 with react",
-  "scripts": {
-    "test": "karma start"
-  },
-  "keywords": [
-    "testing",
-    "karma",
-    "webpack",
-    "istanbul",
-    "react",
-    "babel6"
-  ],
+  "name": "atoo-test-testing",
+  "version": "0.1.0",
+  "description": "example",
   "author": "silentcloud",
   "license": "MIT",
+  "entry": {
+    "index": "./src/App.js"
+  },
   "dependencies": {
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
   "devDependencies": {
-    "babel-core": "^6.3.2",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
-    "expect": "^1.13.0",
-    "isparta-loader": "^2.0.0",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-cli": "0.1.1",
-    "karma-coverage": "^0.5.3",
-    "karma-mocha": "^0.2.1",
-    "karma-mocha-reporter": "^1.1.2",
-    "karma-sourcemap-loader": "^0.3.6",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.3.4",
-    "react-addons-test-utils": "^0.14.3",
-    "webpack": "^1.12.9"
+    "atool-build": "^0.4.2",
+    "atool-test": "^0.2.9",
+    "dora": "0.1.0",
+    "dora-plugin-atool-build": "~0.2.0",
+    "react-addons-test-utils": "^0.14.6"
+  },
+  "scripts": {
+    "dev": "dora -p 8000 --plugins dora-plugin-atool-build",
+    "build": "atool-build",
+    "test": "atool-test"
   }
 }

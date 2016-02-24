@@ -1,3 +1,3 @@
-### react-karma-testing
+### atool-test
 
-karma + webpack + babel6 + react testing example
+atool-test testing example
